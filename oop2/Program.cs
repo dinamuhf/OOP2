@@ -70,3 +70,35 @@
     }
 }
 #endregion
+#region 2
+
+    public class HiringDate
+    {
+        // Properties
+        public int Day { get; set; }
+        public int Month { get; set; }
+        public int Year { get; set; }
+        public HiringDate(int day, int month, int year)
+        {
+            if (!IsValidDate(day, month, year))
+                throw new ArgumentException("Invalid date. Please provide a valid day, month, and year.");
+
+            Day = day;
+            Month = month;
+            Year = year;
+        }
+        private bool IsValidDate(int day, int month, int year)
+        {
+            return DateTime.TryParse($"{year}-{month}-{day}", out _);
+        }
+        public override string ToString()
+        {
+            return $"{Day:D2}/{Month:D2}/{Year}";
+        }
+        public DateTime ToDateTime()
+        {
+            return new DateTime(Year, Month, Day);
+        }
+    }
+
+#endregion
