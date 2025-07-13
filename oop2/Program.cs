@@ -1,4 +1,6 @@
-﻿namespace CompanyApp
+﻿using CompanyApp;
+
+namespace CompanyApp
 {
     public enum SecurityLevel
     {
@@ -98,6 +100,27 @@
         public DateTime ToDateTime()
         {
             return new DateTime(Year, Month, Day);
+        }
+}
+
+#endregion
+
+#region 3
+   
+    class Program
+    {
+        static void Main()
+        {
+            Employee[] EmpArr = new Employee[3];
+
+            EmpArr[0] = new Employee(1, "Alice Johnson", SecurityLevel.DBA, 15000m, new DateTime(2020, 3, 15), 'F');
+            EmpArr[1] = new Employee(2, "Bob Smith", SecurityLevel.Guest, 5000m, new DateTime(2022, 7, 10), 'M');
+            EmpArr[2] = new Employee(3, "Charlie Brown", SecurityLevel.DBA, 18000m, new DateTime(2019, 1, 5), 'M');
+            foreach (var emp in EmpArr)
+            {
+                Console.WriteLine(emp);
+                Console.WriteLine(new string('-', 40));
+            }
         }
     }
 
